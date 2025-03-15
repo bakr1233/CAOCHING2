@@ -18,6 +18,7 @@ body {
     width: 1400px; /* Fixed width */
     height: 50px; /* Fixed height */
     margin: 30px 0 0 25px; /* Center the navbar horizontally */
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .navbar .menu {
@@ -83,6 +84,7 @@ body {
     border-radius: 20px 0 0 20px; /* Coins arrondis à gauche */
     border-radius: 45px;
     background-color: #D9D9D9;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
     font-size: 2rem;
     font-family: 'Space Grotesk', sans-serif;
     outline: none; /* Supprime la bordure par défaut au focus */
@@ -160,7 +162,7 @@ body {
     align-items: center;
     padding: 2rem;
     background-color: #000;
-    height: 100vh; /* Full viewport height */
+    height: 60vh; /* Full viewport height */
 }
 
 .text-content {
@@ -173,7 +175,7 @@ body {
 .fitness-title {
     font-size: 5rem;
     font-family: 'Stalinist One', sans-serif;
-    margin-top: -40px; /* Move title and content down */
+    margin-top: 250px; /* Move title and content down */
     margin-bottom: -40px; /* Add space between title and content */
     padding-bottom: 30px;
     color: #fff;
@@ -253,7 +255,89 @@ body {
 .chat-icon:hover {
     transform: scale(1.1); /* Scale the image on hover */
 }
+.horizontal-line {
+    width: 70%; /* Set the width of the line */
+    height: 1px; /* Thickness of the line */
+    background-color: #ccc; /* Color of the line */
+    margin: 0 auto; /* Center horizontally */
+    border: none; /* Remove default border */
+    position: absolute; /* Position the line absolutely */
+    top: 875px; /* Place the line at the top */
+    left: 50.5%; /* Center horizontally */
+    transform: translateX(-50%); /* Center horizontally */
+}
+/* Container for the second section */
+.second-section {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh; /* Full viewport height */
+    padding: 2rem;
+    overflow: hidden; /* Prevent overflow */
+}
 
+/* Image Container Styles */
+.image-container1 {
+    position: absolute;
+    top: 80px; /* Move images up */
+    transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+/* Mirror the images */
+.mirror {
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+/* Specific positioning for each image */
+.top-shape1 {
+    left: 3%;
+}
+
+.outer {
+    left: 3%;
+    top: 130px;
+}
+
+.inner {
+    left: 4%;
+    top: 146px;
+}
+
+.top-shape3 {
+    left: 3%;
+    top: 215px;
+}
+
+.middle-shape {
+    left: 3%;
+    top: 210px;
+}
+
+.bottom-shape1 {
+    left: 3%;
+    top: 650px;
+}
+
+.bottom-shape2 {
+    left: 3%;
+    top: 674px;
+}
+
+/* Copy images to the other side */
+.image-container1.copy {
+    right: 3%; /* Position on the right side */
+    left: auto; /* Reset left positioning */
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+/* Hover effect for images */
+.image-container1:hover {
+    transform: translateY(-10px) scaleX(var(--flip, 1)); /* Move up on hover and respect flip */
+}
+.image-container1.copy:hover {
+    transform: translateY(-10px) scaleX(var(--flip, -1)); /* Move up on hover and respect flip */
+}
 /* Animation d'apparition */
 @keyframes fadeInUp {
     from {

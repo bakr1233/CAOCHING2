@@ -168,6 +168,192 @@ const ChatButton = () => {
                 />
                 <div className="chat-text">CHAT WITH US</div>
             </motion.div>
+            <hr className="horizontal-line" />
+        </div>
+    );
+};
+
+const SecondSection = () => {
+    return (
+        <div className="second-section">
+            {/* Original Images */}
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 top-shape1"
+            >
+                <img
+                    src="/top-shape1.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 outer"
+            >
+                <img
+                    src="/outer.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 inner"
+            >
+                <img
+                    src="/inner.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 top-shape3"
+            >
+                <img
+                    src="/top-shape3.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 middle-shape"
+            >
+                <img
+                    src="/middle-shape.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 bottom-shape1"
+            >
+                <img
+                    src="/bottom-shape1.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 bottom-shape2"
+            >
+                <img
+                    src="/bottom-shape2.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+
+            {/* Mirrored Images */}
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 copy top-shape1 mirror"
+                style={{ '--flip': -1 }} /* Apply flip for hover */
+            >
+                <img
+                    src="/top-shape1.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 copy outer mirror"
+                style={{ '--flip': -1 }} /* Apply flip for hover */
+            >
+                <img
+                    src="/outer.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 copy inner mirror"
+                style={{ '--flip': -1 }} /* Apply flip for hover */
+            >
+                <img
+                    src="/inner.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 copy top-shape3 mirror"
+                style={{ '--flip': -1 }} /* Apply flip for hover */
+            >
+                <img
+                    src="/top-shape3.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 copy middle-shape mirror"
+                style={{ '--flip': -1 }} /* Apply flip for hover */
+            >
+                <img
+                    src="/middle-shape.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 copy bottom-shape1 mirror"
+                style={{ '--flip': -1 }} /* Apply flip for hover */
+            >
+                <img
+                    src="/bottom-shape1.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 copy bottom-shape2 mirror"
+                style={{ '--flip': -1 }} /* Apply flip for hover */
+            >
+                <img
+                    src="/bottom-shape2.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
         </div>
     );
 };
@@ -179,6 +365,7 @@ const App = () => {
             <SearchBar />
             <FitnessSection />
             <ChatButton />
+            <SecondSection />
         </div>
     );
 };
