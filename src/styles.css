@@ -284,11 +284,6 @@ body {
     transition: transform 0.3s ease; /* Smooth hover effect */
 }
 
-/* Mirror the images */
-.mirror {
-    transform: scaleX(-1); /* Flip horizontally */
-}
-
 /* Specific positioning for each image */
 .top-shape1 {
     left: 3%;
@@ -324,10 +319,64 @@ body {
     top: 674px;
 }
 
-/* Copy images to the other side */
-.image-container1.copy {
+
+
+.image-container2 {
+    position: absolute;
+    top: 80px;
     right: 3%; /* Position on the right side */
     left: auto; /* Reset left positioning */
+    transform: scaleX(-1); /* Flip horizontally */
+    transition: transform 0.3s ease;
+}
+
+/* Specific positioning for each image */
+.top-shape11 {
+    position: absolute;
+    right: 3%; /* Move the image to the right by 50px */
+    top: 40px; /* Move the image to the right by 50px */
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+.outer1 {
+    position: absolute;
+    right: 3%;
+    top: 65px;
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+.inner1 {
+    position: absolute;
+    right: 4%;
+    top: 72px;
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+.top-shape31 {
+    position: absolute;
+    right: 3%;
+    top: 108px;
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+.middle-shape1 {
+    position: absolute;
+    right: 3%;
+    top: 108px;
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+.bottom-shape11 {
+    position: absolute;
+    right: 3%;
+    top: 329px;
+    transform: scaleX(-1); /* Flip horizontally */
+}
+
+.bottom-shape21 {
+    position: absolute;
+    right: 3%;
+    top: 341px;
     transform: scaleX(-1); /* Flip horizontally */
 }
 
@@ -335,7 +384,8 @@ body {
 .image-container1:hover {
     transform: translateY(-10px) scaleX(var(--flip, 1)); /* Move up on hover and respect flip */
 }
-.image-container1.copy:hover {
+
+.image-container2:hover {
     transform: translateY(-10px) scaleX(var(--flip, -1)); /* Move up on hover and respect flip */
 }
 /* Animation d'apparition */

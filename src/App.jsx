@@ -261,97 +261,88 @@ const SecondSection = () => {
                     className=""
                 />
             </motion.div>
-
-            {/* Mirrored Images */}
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="image-container1 copy top-shape1 mirror"
-                style={{ '--flip': -1 }} /* Apply flip for hover */
+                className="top-shape11"
             >
                 <img
                     src="/top-shape1.png"
                     alt="Fitness Character"
-                    className=""
+                    className="top-shape11"
                 />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="image-container1 copy outer mirror"
-                style={{ '--flip': -1 }} /* Apply flip for hover */
+                className="outer1"
             >
                 <img
                     src="/outer.png"
                     alt="Fitness Character"
-                    className=""
+                    className="outer1"
                 />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="image-container1 copy inner mirror"
-                style={{ '--flip': -1 }} /* Apply flip for hover */
+                className="inner1"
             >
                 <img
                     src="/inner.png"
                     alt="Fitness Character"
-                    className=""
+                    className="inner1"
                 />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="image-container1 copy top-shape3 mirror"
-                style={{ '--flip': -1 }} /* Apply flip for hover */
+                className="top-shape31"
             >
                 <img
                     src="/top-shape3.png"
                     alt="Fitness Character"
-                    className=""
+                    className="top-shape31"
                 />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="image-container1 copy middle-shape mirror"
-                style={{ '--flip': -1 }} /* Apply flip for hover */
+                className="middle-shape1"
             >
                 <img
                     src="/middle-shape.png"
                     alt="Fitness Character"
-                    className=""
+                    className="middle-shape1"
                 />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="image-container1 copy bottom-shape1 mirror"
-                style={{ '--flip': -1 }} /* Apply flip for hover */
+                className="bottom-shape11"
             >
                 <img
                     src="/bottom-shape1.png"
                     alt="Fitness Character"
-                    className=""
+                    className="bottom-shape11"
                 />
             </motion.div>
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.7 }}
-                className="image-container1 copy bottom-shape2 mirror"
-                style={{ '--flip': -1 }} /* Apply flip for hover */
+                className="bottom-shape21"
             >
                 <img
                     src="/bottom-shape2.png"
                     alt="Fitness Character"
-                    className=""
+                    className="bottom-shape21"
                 />
             </motion.div>
         </div>
