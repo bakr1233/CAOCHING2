@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/space-grotesk": "^5.2.5",
     "@fontsource/special-elite": "^5.2.5",
     "@fontsource/stalinist-one": "^5.2.5",
     "framer-motion": "^12.5.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-helmet": "^6.1.0",
     "tailwindcss": "^4.0.14"
   },
   "devDependencies": {

@@ -14,26 +14,28 @@ body {
     align-items: center;
     padding: 1rem;
     background-color: #D9D9D9; /* Updated color */
+    border-radius: 20px;
+    width: 1400px; /* Fixed width */
+    height: 50px; /* Fixed height */
+    margin: 30px 0 0 25px; /* Center the navbar horizontally */
 }
 
 .navbar .menu {
-    list-style: ;
+    list-style: none;
     display: flex;
-    gap: 1.5rem;
-    margin: 10px;
+    gap: 3rem;
+    margin: 10px 100px 10px 10px;
     padding: 0px;
     font-size: 20px;
-    font-family: 'Spinnaker', sans-serif;
-
-
-
+    font-family: "Space Grotesk", sans-serif;
 }
 
 .navbar .menu li a {
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 4px;
     color: #000; /* Black text for contrast */
     font-weight: bold;
-    font-family: 'Spinnaker', sans-serif; /* Updated font */
+    font-family: "Space Grotesk", sans-serif;
     transition: color 0.3s ease;
 }
 
@@ -41,31 +43,54 @@ body {
     color: #04273F; /* Blue hover effect */
 }
 
+/* Make "Home" bold and add a vertical line to the right */
+.navbar .menu li:first-child a {
+    font-weight: 700; /* Bold text */
+    position: relative; /* Required for positioning the ::after element */
+    padding-right: 1.5rem; /* Add space for the vertical line */
+}
+
+/* Add a vertical line to the right of "Home" */
+.navbar .menu li:first-child a::after {
+    content: "";
+    display: inline-block;
+    width: 2px; /* Thickness of the line */
+    height: 39px; /* Height of the line */
+    background-color: #000; /* Color of the line */
+    position: absolute; /* Position the line absolutely */
+    right: -10px; /* Place the line to the right of the text */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Center vertically */
+}
+
 /* Conteneur de la barre de recherche */
 .search-bar {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 45px 0;
+    margin: 20px 0;
+    margin-left: 15px;
     padding: 35px;
+    position: relative;
+    z-index: 2;
 }
 
 /* Champ de saisie */
 .search-input {
-    width: 1200px; /* Largeur de la barre de recherche */
-    padding: 10px 15px;
+    width: 800px; /* Largeur de la barre de recherche */
+    padding: 10px 15px 10px 90px; /* Adjusted padding-left to move text to the right */
     border: 4px solid #04273F; /* Bordure bleue */
     border-radius: 20px 0 0 20px; /* Coins arrondis à gauche */
     border-radius: 45px;
-    background-color: #04273F;
-    font-size: 3rem;
+    background-color: #D9D9D9;
+    font-size: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
     outline: none; /* Supprime la bordure par défaut au focus */
     transition: border-color 0.1s ease, box-shadow 0.1s ease;
 }
 
 .search-input:focus {
     border-color: #04273F; /* Bordure plus foncée au focus */
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5); /* Ombre bleue au focus */
 }
 
 /* Bouton de recherche */
@@ -75,7 +100,7 @@ body {
     border: 700px solid #04273F; /* Bordure bleue */
     border-radius: 0 25px 25px 0; /* Coins arrondis à droite */
     color: #04273F; /* Couleur de l'icône */
-    font-size: 4rem;
+    font-size: 2rem;
     cursor: inherit;
     transition: background-color 0.9s ease, border-color 0.9s ease;
 }
@@ -84,14 +109,49 @@ body {
     background-color: #04273F; /* Fond plus foncé au survol */
     border-color: #04273F; /* Bordure plus foncée au survol */
 }
-
+.search-icon {
+    position: absolute;
+    left: 305px; /* Move the image to the right by 50px */
+    top: 53px; /* Move the image to the right by 50px */
+    z-index: 1;
+}
 .search-input::placeholder {
     color: black;
     font-size: 20px;
-    font-style: 'Space Grotesk' ,sans-serif;
+    font-family: 'Space Grotesk' ,sans-serif;
     position: relative;
-    left: 20px; /* Déplace le texte de 20px vers la droite */
-    top: -10px; /* Déplace le texte de 10px vers le haut */
+    left: 5px; /* Déplace le texte de 20px vers la droite */
+    top: -4px; /* Déplace le texte de 10px vers le haut */
+}
+
+.Search-shape {
+    position: absolute;
+    right: 83px; /* Move the image to the right by 50px */
+    top: 70px; /* Move the image to the right by 50px */
+    z-index: 1;
+}
+
+.shape {
+    position: absolute;
+    right: 10px; /* Move the image to the right by 50px */
+    top: 70px; /* Move the image to the right by 50px */
+}
+.shape2 {
+    position: absolute;
+    right: 10px; /* Move the image to the right by 50px */
+    top: 130px; /* Move the image to the right by 50px */
+    transform: scaleX(-1);
+}
+.shape3 {
+    position: absolute;
+    left: 20px; /* Move the image to the right by 50px */
+    top: 70px; /* Move the image to the right by 50px */
+    transform: scaleX(-1);
+}
+.shape4 {
+    position: absolute;
+    left: 20px; /* Move the image to the right by 50px */
+    top: 130px; /* Move the image to the right by 50px */
 }
 
 /* Fitness Section Styles */
@@ -111,114 +171,87 @@ body {
 }
 
 .fitness-title {
-    font-size: 7rem;
+    font-size: 5rem;
     font-family: 'Stalinist One', sans-serif;
-    margin-top: -150px; /* Move text 20px up */
+    margin-top: -40px; /* Move title and content down */
+    margin-bottom: -40px; /* Add space between title and content */
+    padding-bottom: 30px;
     color: #fff;
 }
 
+/* Content Styles */
 .fitness-text {
-    margin-top: -6rem;
+    margin-top: 0; /* Reset margin-top */
     color: #aaa;
     max-width: 750px;
-    font-size: 25px;
-    text-indent: 45px;
+    font-size: 20px;
+    text-indent: 0px;
+    line-height: 1.6; /* Adjust line spacing */
 }
 
-.image-container {
-    flex: 1; /* Takes up half of the screen */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 
 .fitness-image {
-    width: 80%;
-    height: auto;
-    max-width: 100%;
+    width: 1006px; /* Increase the width to make the image bigger */
+    height: 521px; /* Maintain aspect ratio */
+    max-width: none; /* Remove max-width restriction */
+    position: absolute; /* Position the image absolutely */
+    top: 300px; /* Move the image up */
+    right: 0px; /* Move the image to the right */
 }
 
 
 /* Chat Button Styles */
+/* Chat Button Container */
+/* Chat Button Container */
 .chat-button {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 680px; /* Move to the top */
+    left: 50px; /* Move to the left */
+    cursor: pointer; /* Change cursor to pointer */
+    z-index: 1000; /* Ensure it's above other elements */
+    background: none; /* Remove any background color */
+    border: none; /* Remove any border */
+    padding: 0; /* Remove any padding */
 }
 
-.chat-button:hover {
-    background-color: #0056b3;
+/* Chat Icon Styles */
+.chat-icon {
+    width: 300px; /* Increase the size of the image */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Add hover effect */
+    display: block; /* Ensure the image behaves as a block element */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .fitness-section {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-    }
-
-    .text-content {
-        text-align: center;
-        padding: 1rem;
-    }
-
-    .fitness-title {
-        font-size: 2.5rem;
-    }
-
-    .search-input {
-        width: 90%;
-    }
-
-    .navbar .menu {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .image-container {
-        margin-top: 2rem;
-    }
-}
-/* Style de base du bouton */
-.chat-button {
-    position:absolute ;
-    bottom: 150px;
-    right: 1680px;
-    left: 150px;
-    padding: 40px 40px;
-    background-color: #007bff; /* Couleur de fond bleue */
-    border: black;
-    border-radius: 60px; /* Bordures arrondies */
-    color: white; /* Couleur du texte */
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeInUp 0.5s ease-out; /* Animation d'apparition */
+.chat-text {
+    position: absolute;
+    top: 380px; /* Center vertically */
+    left: 115px; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the text */
+    color: white; /* Text color */
+    font-size: 20px; /* Text size */
+    font-family: 'Space Grotesk', sans-serif; /* Font family */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center-align text */
+    pointer-events: none; /* Ensure the text doesn't interfere with clicks */
+    white-space: nowrap;
+    z-index: 1000;
 }
 
-/* Effet de survol */
-.chat-button:hover {
-    background-color: #0056b3; /* Couleur de fond plus foncée */
-    transform: translateY(-2px); /* Légère élévation */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée */
-    animation: pulse 1s infinite; /* Animation de pulsation */
+.triangle-shape {
+    width: 50px; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; /* Add hover effect */
+    position: absolute;
+    top: 340px; /* Move to the top */
+    left: 89px; /* Move to the left */
 }
 
-/* Effet au clic */
-.chat-button:active {
-    transform: translateY(0); /* Retour à la position initiale */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+.triangle-shape:hover {
+    transform: scale(1.1); /* Scale the image on hover */
+}
+.chat-icon:hover {
+    transform: scale(1.1); /* Scale the image on hover */
 }
 
 /* Animation d'apparition */
