@@ -176,6 +176,254 @@ const ChatButton = () => {
 const SecondSection = () => {
     return (
         <div className="second-section">
+            <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="text-content"
+            >
+                <h1 className="chat-title">Chat with</h1>
+                <p className="chat-info">
+                    AI Advising Coach – Ensuring Client Satisfaction & Answering All Your Training Questions!
+                </p>
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="question-bar"
+            >
+                <textarea
+                    placeholder="What is your question about fitness?"
+                    className="question-input"
+                />
+                <img src="/search-icon.png" alt="Search" className="question-icon" />
+                <div className="semi-circle"></div> {/* Semi-circle element */}
+            </motion.div>
+            {/* Original Images */}
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="phone-container"
+            >
+                <img
+                    src="/phone.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 top-shape1"
+            >
+                <img
+                    src="/top-shape1.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 outer"
+            >
+                <img
+                    src="/outer.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 inner"
+            >
+                <img
+                    src="/inner.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 top-shape3"
+            >
+                <img
+                    src="/top-shape3.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 middle-shape"
+            >
+                <img
+                    src="/middle-shape.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 bottom-shape1"
+            >
+                <img
+                    src="/bottom-shape1.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="image-container1 bottom-shape2"
+            >
+                <img
+                    src="/bottom-shape2.png"
+                    alt="Fitness Character"
+                    className=""
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="top-shape11"
+            >
+                <img
+                    src="/top-shape1.png"
+                    alt="Fitness Character"
+                    className="top-shape11"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="outer1"
+            >
+                <img
+                    src="/outer.png"
+                    alt="Fitness Character"
+                    className="outer1"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="inner1"
+            >
+                <img
+                    src="/inner.png"
+                    alt="Fitness Character"
+                    className="inner1"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="top-shape31"
+            >
+                <img
+                    src="/top-shape3.png"
+                    alt="Fitness Character"
+                    className="top-shape31"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="middle-shape1"
+            >
+                <img
+                    src="/middle-shape.png"
+                    alt="Fitness Character"
+                    className="middle-shape1"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="bottom-shape11"
+            >
+                <img
+                    src="/bottom-shape1.png"
+                    alt="Fitness Character"
+                    className="bottom-shape11"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="bottom-shape21"
+            >
+                <img
+                    src="/bottom-shape2.png"
+                    alt="Fitness Character"
+                    className="bottom-shape21"
+                />
+            </motion.div>
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="underline"
+            >
+                <img
+                    src="/underline.png"
+                    alt="Fitness Character"
+                    className="underline"
+                />
+            </motion.div>
+            <hr className="horizontal2-line" />
+            <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="underline1"
+            >
+                <img
+                    src="/underline.png"
+                    alt="Fitness Character"
+                    className="underline1"
+                />
+            </motion.div>
+
+        </div>
+    );
+};
+const ThirdSection = () => {
+    return (
+        <div className="third-section">
+            <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                className="text-content"
+            >
+                <h1 className="chat-title">Live with</h1>
+                <p className="chat-info">
+                AI Advising Coach – Get Real-Time AI Feedback to Prevent Injuries & Maximize Performance!
+                </p>
+            </motion.div>
             {/* Original Images */}
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
@@ -345,6 +593,22 @@ const SecondSection = () => {
                     className="bottom-shape21"
                 />
             </motion.div>
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="question1-bar"
+            >
+                <textarea
+                    placeholder="Feedback about your performance"
+                    className="question1-input"
+                />
+                <img
+                    src="/video-design.png"
+                    alt="Fitness Character"
+                    className="video-design"
+                />
+            </motion.div>
         </div>
     );
 };
@@ -357,6 +621,7 @@ const App = () => {
             <FitnessSection />
             <ChatButton />
             <SecondSection />
+            <ThirdSection />
         </div>
     );
 };
