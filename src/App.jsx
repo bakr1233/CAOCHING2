@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "@fontsource/stalinist-one";
 import "@fontsource/special-elite";
 import "@fontsource/space-grotesk";
 import "./styles.css";
+import { getAIResponse } from './services/openaiService';
 
 
+// Add this CSS rule at the beginning of your component or in your styles.css file
+const scrollStyle = {
+  scrollBehavior: "smooth"
+};
 
 const Navbar = () => {
     return (
@@ -21,9 +26,8 @@ const Navbar = () => {
             </div>
             <ul className="menu">
                 <li><a href="#">HOME</a></li>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">COACH</a></li>
-                <li><a href="#">SERVICES</a></li>
+                <li><a href="#chat-section">CHAT WITH AI</a></li>
+                <li><a href="#video-section">VIDEO WITH AI COACH</a></li>
             </ul>
         </motion.nav>
     );
@@ -148,6 +152,9 @@ const ChatButton = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
                 className="chat-button"
+                onClick={() => {
+                    document.getElementById('chat-section').scrollIntoView({ behavior: 'smooth' });
+                }}
             >
                 <img
                     src="/batman.png" // Path to your image
@@ -166,7 +173,7 @@ const ChatButton = () => {
                     alt="Shape"
                     className="triangle-shape"
                 />
-                <div className="chat-text">CHAT WITH US</div>
+                <a href="#chat-section" className="chat-text">CHAT WITH US</a>
             </motion.div>
             <hr className="horizontal-line" />
         </div>
@@ -174,8 +181,31 @@ const ChatButton = () => {
 };
 
 const SecondSection = () => {
+    const [question, setQuestion] = useState('');
+    const [answer, setAnswer] = useState('');
+    const [loading, setLoading] = useState(false);
+
+    const handleQuestionChange = (e) => {
+        setQuestion(e.target.value);
+    };
+
+    const handleSubmit = async () => {
+        if (!question.trim()) return;
+        
+        setLoading(true);
+        try {
+            const response = await getAIResponse(question);
+            setAnswer(response);
+        } catch (error) {
+            console.error('Error:', error);
+            setAnswer('Sorry, there was an error processing your request.');
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
-        <div className="second-section">
+        <div id="chat-section" className="second-section">
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -196,10 +226,41 @@ const SecondSection = () => {
                 <textarea
                     placeholder="What is your question about fitness?"
                     className="question-input"
+                    value={question}
+                    onChange={handleQuestionChange}
                 />
-                <img src="/search-icon.png" alt="Search" className="question-icon" />
-                <div className="semi-circle"></div> {/* Semi-circle element */}
+                <div 
+                    className="semi-circle"
+                    onClick={handleSubmit}
+                    style={{ cursor: 'pointer' }}
+                ></div>
+                <img 
+                    src="/search-icon.png" 
+                    alt="Search" 
+                    className="question-icon" 
+                    onClick={handleSubmit}
+                    style={{ cursor: 'pointer' }}
+                />
             </motion.div>
+            
+            {/* AI Response Section */}
+            {(loading || answer) && (
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="ai-response-container"
+                >
+                    {loading ? (
+                        <p className="loading-text">Thinking...</p>
+                    ) : (
+                        <div className="ai-response">
+                            <h3>AI Coach Response:</h3>
+                            <p>{answer}</p>
+                        </div>
+                    )}
+                </motion.div>
+            )}
+            
             {/* Original Images */}
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
@@ -412,7 +473,7 @@ const SecondSection = () => {
 };
 const ThirdSection = () => {
     return (
-        <div className="third-section">
+        <div id="video-section" className="third-section">
             <motion.div
                 initial={{ opacity: 0, x: -50 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -615,7 +676,7 @@ const ThirdSection = () => {
 
 const App = () => {
     return (
-        <div>
+        <div style={scrollStyle}>
             <Navbar />
             <SearchBar />
             <FitnessSection />
