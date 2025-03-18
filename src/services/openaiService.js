@@ -1,31 +1,54 @@
 import axios from 'axios';
 
-const API_KEY = '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'; // Replace with your actual API key
+// Only use environment variable, no fallback
+const API_KEY = import.meta.env.VITE_OPENAI_API_KEY;
 
 export const getAIResponse = async (question) => {
   try {
+    // Check if API key is valid
+    if (!API_KEY) {
+      console.error('API key not found in environment variables');
+      return 'API key not configured. Please add your API key to the environment variables.';
+    }
+
+    // Use the Claude API endpoint
     const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
+      'https://api.anthropic.com/v1/messages',
       {
-        model: 'gpt-3.5-turbo',
+        model: 'claude-3-sonnet-20240229',
+        max_tokens: 500,
         messages: [
-          { role: 'system', content: 'You are a fitness coach assistant. Provide helpful, accurate, and concise fitness advice.' },
           { role: 'user', content: question }
         ],
-        max_tokens: 500,
-        temperature: 0.7,
+        system: 'You are a fitness coach assistant. Provide helpful, accurate, and concise fitness advice.'
       },
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${API_KEY}`
+          'x-api-key': API_KEY,
+          'anthropic-version': '2023-06-01'
         }
       }
     );
     
-    return response.data.choices[0].message.content;
+    return response.data.content[0].text;
   } catch (error) {
     console.error('Error fetching AI response:', error);
+    
+    // More detailed error message
+    if (error.response) {
+      console.error('Response data:', error.response.data);
+      console.error('Response status:', error.response.status);
+      
+      if (error.response.status === 401) {
+        return 'Authentication error: Please check your API key.';
+      } else if (error.response.status === 429) {
+        return 'Rate limit exceeded: Too many requests to the API.';
+      }
+    } else if (error.request) {
+      return 'Network error: Could not connect to the API.';
+    }
+    
     return 'Sorry, I could not process your request at this time.';
   }
 }; 

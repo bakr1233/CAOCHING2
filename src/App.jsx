@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import "@fontsource/stalinist-one";
 import "@fontsource/special-elite";
 import "@fontsource/space-grotesk";
 import "./styles.css";
 import { getAIResponse } from './services/openaiService';
+import Webcam from "react-webcam";
 
 
 // Add this CSS rule at the beginning of your component or in your styles.css file
@@ -471,7 +472,44 @@ const SecondSection = () => {
         </div>
     );
 };
+
 const ThirdSection = () => {
+    const [isRecording, setIsRecording] = useState(false);
+    const [feedback, setFeedback] = useState('');
+    const [loading, setLoading] = useState(false);
+    const webcamRef = useRef(null);
+    
+    const startRecording = () => {
+        setIsRecording(true);
+    };
+    
+    const stopRecordingAndGetFeedback = async () => {
+        setIsRecording(false);
+        setLoading(true);
+        
+        try {
+            // Capture image from webcam
+            const imageSrc = webcamRef.current.getScreenshot();
+            
+            // In a real implementation, you would:
+            // 1. Send the video/images to a computer vision API
+            // 2. Process the movement analysis
+            // 3. Send the analysis to OpenAI for feedback
+            
+            // For now, we'll simulate with a generic request
+            const response = await getAIResponse(
+                "Analyze this fitness movement: squat. Provide feedback on form and technique."
+            );
+            
+            setFeedback(response);
+        } catch (error) {
+            console.error('Error:', error);
+            setFeedback('Sorry, there was an error analyzing your movement.');
+        } finally {
+            setLoading(false);
+        }
+    };
+    
     return (
         <div id="video-section" className="third-section">
             <motion.div
@@ -482,9 +520,58 @@ const ThirdSection = () => {
             >
                 <h1 className="chat-title">Live with</h1>
                 <p className="chat-info">
-                AI Advising Coach – Get Real-Time AI Feedback to Prevent Injuries & Maximize Performance!
+                    AI Advising Coach – Get Real-Time AI Feedback to Prevent Injuries & Maximize Performance!
                 </p>
             </motion.div>
+            
+            {/* Webcam Component */}
+            <div className="webcam-container">
+                {isRecording && (
+                    <Webcam
+                        audio={false}
+                        ref={webcamRef}
+                        screenshotFormat="image/jpeg"
+                        className="webcam"
+                    />
+                )}
+                
+                <div className="video-controls">
+                    {!isRecording ? (
+                        <button 
+                            className="start-video-btn"
+                            onClick={startRecording}
+                        >
+                            Start Video
+                        </button>
+                    ) : (
+                        <button 
+                            className="get-feedback-btn"
+                            onClick={stopRecordingAndGetFeedback}
+                        >
+                            Get Feedback
+                        </button>
+                    )}
+                </div>
+            </div>
+            
+            {/* Feedback Display */}
+            {(loading || feedback) && (
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="feedback-container"
+                >
+                    {loading ? (
+                        <p className="loading-text">Analyzing your movement...</p>
+                    ) : (
+                        <div className="movement-feedback">
+                            <h3>AI Coach Feedback:</h3>
+                            <p>{feedback}</p>
+                        </div>
+                    )}
+                </motion.div>
+            )}
+            
             {/* Original Images */}
             <motion.div
                 initial={{ opacity: 0, x: 50 }}
@@ -660,10 +747,7 @@ const ThirdSection = () => {
                 transition={{ duration: 0.5 }}
                 className="question1-bar"
             >
-                <textarea
-                    placeholder="Feedback about your performance"
-                    className="question1-input"
-                />
+            
                 <img
                     src="/video-design.png"
                     alt="Fitness Character"
