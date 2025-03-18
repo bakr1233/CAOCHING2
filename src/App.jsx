@@ -525,6 +525,7 @@ const ThirdSection = () => {
             </motion.div>
             
             {/* Webcam Component */}
+            
             <div className="webcam-container">
                 {isRecording && (
                     <Webcam
