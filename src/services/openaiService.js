@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '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'; // Replace with your actual API key
-
+const API_KEY = 
 export const getAIResponse = async (question) => {
   try {
     const response = await axios.post(
